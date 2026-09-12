@@ -10,7 +10,8 @@
         "build": "tsc --noEmit && bun run build:tailwind && bun run build:scripts",
         "build:tailwind": "tailwindcss -i ./src/pages/input.css -o ./src/pages/public/styles.css",
         "build:scripts": "bun build ./src/pages/scripts/index.ts --outdir ./src/pages/public/",
-        "db:push": "drizzle-kit push"
+        "db:push": "drizzle-kit push",
+        "db:validate": "drizzle-kit push --explain"
     },
     "dependencies": {
         "@elysia/html": "^1.4.1",
@@ -29,3 +30,4 @@
         "tailwindcss": "^4.3.3"
     }
 }
+

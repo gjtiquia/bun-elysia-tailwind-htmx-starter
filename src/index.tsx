@@ -1,14 +1,18 @@
 import { Elysia } from "elysia";
 import { api } from "./api";
 import { pages } from "./pages";
+import { dbFilename } from "./db";
+
+// for easier debugging
+// the import also valiates the db
+console.log("🦊 DATABASE:", dbFilename);
 
 if (!process.env.VERSION) {
-    process.env.VERSION = (
-        await Bun.$`git rev-parse --short HEAD`.text()
-    ).trim();
+    process.env.VERSION = await Bun.$`git rev-parse --short HEAD`.text();
 }
 
-console.log("🦊 VERSION", process.env.VERSION);
+// for invalidating static file cache
+console.log("🦊 VERSION:", process.env.VERSION);
 
 const app = new Elysia()
     .use(api)
