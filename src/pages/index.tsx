@@ -14,6 +14,4 @@ export const pages = new Elysia()
     )
     // docs: https://elysiajs.com/plugins/html.html
     .use(html())
-    .get("/", async ({ cookie, request }) => {
-        <HomePage />;
-    });
+    .get("/", () => <HomePage />);
