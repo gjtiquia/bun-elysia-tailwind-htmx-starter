@@ -75,6 +75,12 @@ bun i -D prettier
 
 - we bundle it using Bun (see `package.json` and `/src/pages/scripts/index.ts`)
 
+### generated frontend files
+
+- dont edit generated files directly
+- edit their source files, then regenerate them using the project build command
+- if generated files are tracked, commit them together with their source changes
+
 ### htmx
 
 - we are using HTMX 4 btw

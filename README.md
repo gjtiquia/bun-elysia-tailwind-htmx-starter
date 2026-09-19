@@ -25,6 +25,9 @@ bun run start
 # dev server at port 3000
 bun run dev
 
+# typecheck and generate build artifacts
+bun run build
+
 # run all tests
 bun test
 

@@ -12,6 +12,13 @@
     - https://htmx.org/essays/locality-of-behaviour/
     - enables a programmer to understand that source by looking at only a small portion of it.
 
+## ui changes
+
+- verify visual changes in the rendered UI, dont rely on reading the code alone
+- check relevant viewport sizes, interaction states, and content variations
+- when fixing alignment, understand the containing box and actual rendered geometry before adding offsets
+- preserve existing copy, line breaks, overflow, and responsive behavior unless the change calls for it
+
 ## typescript
 
 - function ordering, as pragmatic as possible, order from high level to low level functions, so it reads nicely
@@ -23,7 +30,9 @@
 ### frontend scripts
 
 - reference [rsjs - Reasonable System for JavaScript Structure](https://ricostacruz.com/rsjs/)
-    - `data-js-scriptName` attribute on elements with `scriptName.ts` as the corresponding script for that attribute
+- use kebab-case for script filenames and `data-js-*` hooks
+    - eg. `example-form.ts` uses `data-js-example-form`
+    - the root hook and script filename should match
 
 ## html
 
@@ -39,6 +48,9 @@
 - dont add unspecified behavior unless agreed before hand
 - keep text variants a limited set, be consistent with text size
 - use consistent colors, eg. consistent shades of gray
+- prefer tailwind utilities directly on the relevant element for Locality of Behaviour
+- add custom component css only when utilities are not pragmatic or the style is a stable repeated abstraction
+- dont create a custom class just to shorten one element's class list
 
 ## docs
 
