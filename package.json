@@ -2,9 +2,9 @@
     "name": "bun-elysia-tailwind-htmx-starter",
     "version": "1.0.50",
     "scripts": {
-        "start": "bun run build && bun run src/index.tsx",
+        "start": "NODE_ENV=production bun run build && NODE_ENV=production bun run src/index.tsx",
         "dev": "tsc --noEmit && concurrently 'bun run dev:server' 'bun run dev:tailwind' 'bun run dev:scripts'",
-        "dev:server": "bun run --watch src/index.tsx",
+        "dev:server": "NODE_ENV=development bun run --watch src/index.tsx",
         "dev:tailwind": "tailwindcss -i ./src/pages/input.css -o ./src/pages/public/styles.css --watch",
         "dev:scripts": "bun build ./src/pages/scripts/index.ts --outdir ./src/pages/public/ --watch",
         "build": "tsc --noEmit && bun run build:tailwind && bun run build:scripts",

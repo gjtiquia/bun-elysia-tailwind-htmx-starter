@@ -10,6 +10,7 @@ export const pages = new Elysia()
         staticPlugin({
             assets: "src/pages/public",
             prefix: "/public",
+            maxAge: process.env.NODE_ENV === "production" ? 86400 : 0,
         }),
     )
     // docs: https://elysiajs.com/plugins/html.html
