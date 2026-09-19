@@ -2,6 +2,7 @@ import "dotenv/config";
 import { fileURLToPath } from "node:url";
 import { push } from "drizzle-kit/cli";
 import { drizzle } from "drizzle-orm/bun-sqlite";
+import { runBackfillsAsync } from "./backfill";
 
 export const dbFilename = process.env.DB_FILE_NAME;
 if (!dbFilename) {
@@ -23,5 +24,7 @@ if (!stdout.includes("No changes detected")) {
 
 export const db = drizzle(dbFilename);
 db.$client.exec("PRAGMA foreign_keys = ON");
+
+await runBackfillsAsync(db);
 
 export * from "./schema";

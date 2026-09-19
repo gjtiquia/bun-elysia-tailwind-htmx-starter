@@ -54,6 +54,8 @@ bun i -D prettier
 
 - uses tailwind CLI to generate the css
 - output served via /public/styles.css
+- official tailwind prettier plugin
+    - https://tailwindcss.com/blog/automatic-class-sorting-with-prettier
 
 ## docs and notes
 
